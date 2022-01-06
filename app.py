@@ -43,8 +43,17 @@ def index():
 
 
 
+
 #API
 @app.route("/query", methods=['POST'])
 def query():
     data = queryDB("SELECT * FROM bars")
     return json.dumps(data)
+    
+@app.route("/add", methods=['POST'])
+def add():
+    data = request.form.to_dict(flat=False)
+    print(data)
+    insert("INSERT INTO bars (name, description, lat, lon) VALUES ('{}', '{}', '{}', '{}')".format(data['name'][0], data['description'][0], data['lat'][0], data['lng'][0]))
+    id = queryDB("SELECT id FROM bars WHERE name='{}'".format(data['name'][0]))
+    return json.dumps(id)

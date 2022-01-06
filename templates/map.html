@@ -5,7 +5,18 @@
 {% endblock %}
 
 {% block body %}
+<div class="ui">
+    <button class="button-31" onclick="edit();" role="button">Add new bar</button>
+    <h1 id="title">BEER MAP</h1>
+    <section>
+        <input type="text" placeholder="Search...">
+        <button class="button-31" role="button">Search</button>
+    </section>
+</div>
+
 <div id="map"></div>
+
+<div id="nb"></div>
 
 
 <script src="{{url_for('static', filename='js/map.js')}}"></script>
