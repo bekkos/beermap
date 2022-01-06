@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTING</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #map { height: 100vh; }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([59.91273, 10.74609], 13);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiY2l2YmVlcm1hcCIsImEiOiJja3kyNmJsNmcwZHFhMnVsajRkYjJzMG1zIn0.Sna_CWX0aSDcuuvbv1vjsQ'
+        }).addTo(map);
+        var marker = L.marker([59.9249694, 10.7593746]).addTo(map);
+        marker.bindPopup("<b>Grunerløkka Brygghus</b><br>Lorem Ipsum dalar tarem dirita sante.<br><a href='https://www.google.com' target='_blank'>Les mer </a>");
+    </script>
+</body>
+</html>
